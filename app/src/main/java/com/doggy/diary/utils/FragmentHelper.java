@@ -6,8 +6,7 @@ import androidx.fragment.app.Fragment;
 import com.doggy.diary.R;
 
 public class FragmentHelper {
-
-    private AppCompatActivity app;
+    private final AppCompatActivity app;
 
     public FragmentHelper(AppCompatActivity app) {
         this.app = app;

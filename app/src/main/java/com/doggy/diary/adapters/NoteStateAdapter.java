@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -27,8 +28,16 @@ public class NoteStateAdapter extends RecyclerView.Adapter<NoteStateAdapter.View
         View view = LayoutInflater
                 .from(parent.getContext())
                 .inflate(R.layout.item_note, parent, false);
+        ViewHolder viewHolder = new ViewHolder(view);
 
-        return new ViewHolder(view);
+        viewHolder.itemView.setOnClickListener(v -> {
+            TextView textView = v.findViewById(R.id.item_note_filename);
+            String filename = textView.getText().toString();
+            Toast.makeText(v.getContext(), filename, Toast.LENGTH_SHORT).show();
+        });
+
+
+        return viewHolder;
     }
 
     @Override
